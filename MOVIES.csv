@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 ID,TITLE,RELEASE DATE,LANGUAGE,PRODUCER,CERTIFICATE,COUNTRY,GENRE,DURATION,RUNTIME,RATING,GROSS
 1,The Irishman,27-09-2019,English,Robert De Niro,PG-13,United States,Drama,120,218,9.2,5125419
 2,Dangal,23-12-2016,Hindi,Siddharth Roy Kapoor,TV-MA,India,Crime,141,429,9.2,5637125
@@ -30,36 +29,3 @@ ID,TITLE,RELEASE DATE,LANGUAGE,PRODUCER,CERTIFICATE,COUNTRY,GENRE,DURATION,RUNTI
 28,I Lost My Body,06-11-2019,English,Lucie Bolze,PG-13,United States,Crime,144,160,8.6,5923747
 29,Django Unchained,22-03-2012,English,Stacey Sher,PG-13,United States,Fantasy,123,201,8.6,5728374
 30,The Half of It,01-05-2020,English,Alice Wu,PG-13,United States,Adventure,172,137,8.6,5857384
-=======
-ID,TITLE,RELEASE DATE,LANGUAGE,PRODUCER,CERTIFICATE,COUNTRY,GENRE,DURATION,RUNTIME,RATING,GROSS
-1,The Irishman,27-09-2019,English,Robert De Niro,PG-13,United States,Drama,120,218,9.2,5125419
-2,Dangal,23-12-2016,Hindi,Siddharth Roy Kapoor,TV-MA,India,Crime,141,429,9.2,5637125
-3,John Mulaney: Kid Gorgeous at Radio City,01-05-2018,English,Jonnie Huges,TV-MA,United States,Crime,92,180,9.1,7278972
-4,Lagaan: Once Upon a Time in India,15-06-2001,Hindi,Mansoor Khan,TV-MA,India,Drama,100,69,9,6165753
-5,Roma,21-11-2018,French,Alfonso Cuaron,TV-MA,France,Crime,170,182,9,5078936
-6,To All the Boys I've Loved Before,17-08-2018,English,Will Smith,TV-MA,United States,Drama,190,230,8.9,6351213
-7,The Social Dilemma,09-09-2020,English,Larissa Rhodes,PG,United Kingdom,Crime,132,295,8.9,7331656
-8,Okja,29-06-2017,Spanish,Bong Joon Ho,TV-MA,Spain,Biography,110,310,8.9,6816336
-9,The Ballad of Buster Scruggs,16-11-2018,French,Ethan Coen,TV-14,United Kingdom,Adventure,103,391,8.8,5187972
-10,The Trial of the Chicago 7,25-09-2020,English,Aaron Sorkin,PG-13,United States,Drama,97,192,8.8,6878376
-11,Article 15,28-06-2019,Hindi,Anubhav Sinha,TV-MA,India,Adventure,134,140,8.8,5738673
-12,Kerala Story,05-05-2023,Hindi,Eddie Murphy,TV-MA,India,Romance,171,261,8.8,6193786
-13,Dolemite Is My Name,07-09-2019,English,Cassian Elwes,TV-MA,Germany,Adventure,100,381,8.8,5316299
-14,Mudbound,21-01-2017,English,Ashutosh Gowariker,TV-PG,Germany,Action,150,421,8.7,6163982
-15,Swades,17-12-2004,French,Chris Smith,TV-MA,Ethiopia,Sci-Fi,148,315,8.7,7317963
-16,Fyre,18-01-2019,Spanish,Morgan Neville,TV-MA,United States,Biography,88,174,8.7,5188276
-17,Miss Americana,31-01-2020,English,Jon Drever,TV-MA,United States,Fantasy,168,119,8.7,5874676
-18,Virunga,07-11-2014,Spanish,Arindam Mitra,TV-MA,Mexico,Romance,118,418,8.7,7136712
-19,Black Friday,09-02-2007,English,Vineet Jain,TV-14,India,Biography,137,162,8.6,6132567
-20,Talvar,02-10-2015,Hindi,Brad Pitt,TV-MA,India,Thriller,130,271,8.6,5893763
-21,The King,11-10-2019,English,John Skidmore,TV-14,Ghana,Romance,187,291,8.6,6767862
-22,RRR,24-03-2022,Telugu,D.V.V.Danayya,TV-14,Turkey,Thriller,173,237,8.6,6276170
-23,I Am Mother,25-01-2019,English,Simon Chinn,TV-PG,United States,Crime,160,218,8.6,5563527
-24,Tell Me Who I Am,30-08-2019,English,Brad Pitt,TV-Y,United States,Adventure,149,181,8.6,6674523
-25,The Departed,06-10-2006,French,Brad Grey,TV-14,India,Drama,116,193,8.6,6427418
-26,Winter on Fire: Ukraine's Fight for Freedom,09-10-2015,English,Evgeny Afineevsky Den Tolmor,TV-14,Australia,Fantasy,173,371,8.6,5872472
-27,Terminator 2: Judgment Day,24-08-1991,French,Lisa M Hansen,TV-PG,France,Romance,94,250,8.6,6827489
-28,I Lost My Body,06-11-2019,English,Lucie Bolze,PG-13,United States,Crime,144,160,8.6,5923747
-29,Django Unchained,22-03-2012,English,Stacey Sher,PG-13,United States,Fantasy,123,201,8.6,5728374
-30,The Half of It,01-05-2020,English,Alice Wu,PG-13,United States,Adventure,172,137,8.6,5857384
->>>>>>> 30f238981761de3abba095b74b12d706bf2db6e2

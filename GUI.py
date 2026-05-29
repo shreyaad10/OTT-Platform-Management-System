@@ -62,14 +62,51 @@ def make_entry(parent, width=30):
                  highlightthickness=1, highlightbackground=ACCENT2)
     return e
 
+def clean_csv(csv_path):
+    """Remove Git merge conflict markers from a CSV file and return cleaned lines."""
+    with open(csv_path, 'r', encoding='utf-8', errors='ignore') as f:
+        lines = f.readlines()
+
+    cleaned = []
+    in_conflict = False
+    in_theirs   = False
+    has_conflict = False
+
+    for line in lines:
+        s = line.strip()
+        if s.startswith('<<<<<<<'):
+            in_conflict = True
+            in_theirs   = False
+            has_conflict = True
+            continue
+        elif s.startswith('=======') and in_conflict:
+            in_theirs = True
+            continue
+        elif s.startswith('>>>>>>>') and in_conflict:
+            in_conflict = False
+            in_theirs   = False
+            continue
+        # Keep "ours" side (before =======), skip "theirs" side
+        if in_theirs:
+            continue
+        cleaned.append(line)
+
+    if has_conflict:
+        # Overwrite the file with the cleaned version
+        with open(csv_path, 'w', encoding='utf-8') as f:
+            f.writelines(cleaned)
+
+    return has_conflict
+
 def show_table(parent, df):
     """Render a DataFrame in a scrollable Treeview inside parent frame."""
     for w in parent.winfo_children():
         w.destroy()
     cols = list(df.columns)
+
     tree = ttk.Treeview(parent, columns=cols, show="headings", height=18)
-    vsb = ttk.Scrollbar(parent, orient="vertical",   command=tree.yview)
-    hsb = ttk.Scrollbar(parent, orient="horizontal", command=tree.xview)
+    vsb  = ttk.Scrollbar(parent, orient="vertical",   command=tree.yview)
+    hsb  = ttk.Scrollbar(parent, orient="horizontal", command=tree.xview)
     tree.configure(yscrollcommand=vsb.set, xscrollcommand=hsb.set)
 
     style = ttk.Style()
@@ -82,9 +119,15 @@ def show_table(parent, df):
         background=PANEL, foreground=ACCENT, font=("Segoe UI", 10, "bold"))
     style.map("Treeview", background=[("selected", ACCENT2)])
 
+    # Auto-size columns based on header + data content
     for c in cols:
+        max_len = max(
+            len(str(c)),
+            df[c].astype(str).str.len().max() if len(df) > 0 else 0
+        )
+        col_width = max(90, min(int(max_len) * 9, 260))
         tree.heading(c, text=c)
-        tree.column(c, width=max(100, len(str(c))*10), anchor="center")
+        tree.column(c, width=col_width, anchor="center", stretch=True)
 
     for _, row in df.iterrows():
         tree.insert("", "end", values=list(row))
@@ -253,11 +296,27 @@ class OTTApp(tk.Tk):
 
     def _load_table(self, frame, csv_path):
         try:
+            # Auto-fix Git merge conflict markers if present
+            fixed = clean_csv(csv_path)
+            if fixed:
+                messagebox.showwarning(
+                    "CSV Repaired",
+                    f"Git merge conflict markers were found and auto-removed from:\n{csv_path}\n\nPlease verify your data looks correct."
+                )
             df = pd.read_csv(csv_path)
+            if df.empty:
+                for w in frame.winfo_children(): w.destroy()
+                tk.Label(frame, text="⚠  No records found in this file.",
+                         bg=BG, fg=SUBTEXT, font=FONT_SUB).pack(pady=40)
+                return
             show_table(frame, df)
         except FileNotFoundError:
             for w in frame.winfo_children(): w.destroy()
             tk.Label(frame, text=f"⚠  File not found:\n{csv_path}",
+                     bg=BG, fg=DANGER, font=FONT_SUB).pack(pady=40)
+        except Exception as ex:
+            for w in frame.winfo_children(): w.destroy()
+            tk.Label(frame, text=f"⚠  Error loading file:\n{ex}",
                      bg=BG, fg=DANGER, font=FONT_SUB).pack(pady=40)
 
     def _add_movie(self):
